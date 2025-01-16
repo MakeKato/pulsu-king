@@ -5,7 +5,7 @@ var speed: float = 200.0
 var velocity: Vector2 = Vector2.ZERO
 var collected_bottles: int = 0
 
-func _process(delta: float):
+func _process(_delta: float):
 	# Input handling for movement
 	var direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
