@@ -11,6 +11,8 @@
 [sub_resource type="CapsuleMesh" id=1]
 
 [sub_resource type="CapsuleShape2D" id=2]
+radius = 3.0
+height = 16.0
 
 [node name="World0" type="Node2D"]
 
@@ -86,4 +88,6 @@ scale = Vector2( 13, 13 )
 mesh = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 0, 11 )
+rotation = 1.5708
 shape = SubResource( 2 )
