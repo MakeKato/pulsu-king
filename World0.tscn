@@ -3,14 +3,14 @@
 [ext_resource path="res://World.tres" type="TileSet" id=1]
 [ext_resource path="res://B03.png" type="Texture" id=2]
 [ext_resource path="res://H03.png" type="Texture" id=3]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=4]
+[ext_resource path="res://testplayer.gd" type="Script" id=4]
 [ext_resource path="res://H05.png" type="Texture" id=5]
 [ext_resource path="res://B02.png" type="Texture" id=6]
 [ext_resource path="res://H06.png" type="Texture" id=7]
 
 [sub_resource type="CapsuleMesh" id=1]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=2]
 
 [node name="World0" type="Node2D"]
 
@@ -32,10 +32,20 @@ position = Vector2( 233.63, 110.733 )
 scale = Vector2( 0.38, 0.393 )
 texture = ExtResource( 2 )
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Shop"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shop/StaticBody2D"]
+polygon = PoolVector2Array( -91.1316, -126.547, 93.0789, -126.547, 93.0789, -34.944, 116.763, -42.5776, 116.763, 130.45, -109.553, 130.45, -109.553, -37.4886, -93.7632, -37.4886 )
+
 [node name="Home" type="Sprite" parent="."]
 position = Vector2( 926, 53 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Home"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Home/StaticBody2D"]
+polygon = PoolVector2Array( 0, -146.667, -106.667, -83.3333, -106.667, 130, 110, 126.667, 103.333, -96.6667 )
 
 [node name="RedHouse" type="Sprite" parent="."]
 position = Vector2( 96, 503 )
@@ -65,18 +75,15 @@ texture = ExtResource( 6 )
 [node name="StaticBody2D" type="StaticBody2D" parent="2story"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="2story/StaticBody2D"]
-visible = false
 polygon = PoolVector2Array( -180, -220, -180, -70, -216.667, -70, -216.667, 233.333, 213.333, 233.333, 213.333, -70, 183.333, -70, 183.333, -220, 133.333, -220, 126.667, -233.333, 90, -233.333, 90, -223.333 )
 
-[node name="Player" type="KinematicBody2D" parent="."]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 775, 113 )
 script = ExtResource( 4 )
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Player"]
-position = Vector2( 928, 100 )
-scale = Vector2( 17, 17 )
+[node name="MeshInstance2D" type="MeshInstance2D" parent="KinematicBody2D"]
+scale = Vector2( 13, 13 )
 mesh = SubResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( 928, 100 )
-scale = Vector2( 1.635, 1.635 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 shape = SubResource( 2 )
