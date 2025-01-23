@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://World.tres" type="TileSet" id=1]
 [ext_resource path="res://B03.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://H05.png" type="Texture" id=5]
 [ext_resource path="res://B02.png" type="Texture" id=6]
 [ext_resource path="res://H06.png" type="Texture" id=7]
+[ext_resource path="res://DrunkNPC.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleMesh" id=1]
 
@@ -91,3 +92,7 @@ mesh = SubResource( 1 )
 position = Vector2( 0, 11 )
 rotation = 1.5708
 shape = SubResource( 2 )
+
+[node name="Drunk" parent="." instance=ExtResource( 8 )]
+position = Vector2( 428, 322 )
+scale = Vector2( 0.7, 0.7 )
