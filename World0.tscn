@@ -1,16 +1,29 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://World.tres" type="TileSet" id=1]
 [ext_resource path="res://B03.png" type="Texture" id=2]
 [ext_resource path="res://H03.png" type="Texture" id=3]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=4]
+[ext_resource path="res://testplayer.gd" type="Script" id=4]
 [ext_resource path="res://H05.png" type="Texture" id=5]
 [ext_resource path="res://B02.png" type="Texture" id=6]
 [ext_resource path="res://H06.png" type="Texture" id=7]
+[ext_resource path="res://DrunkNPC.tscn" type="PackedScene" id=8]
+[ext_resource path="res://NPC_gangster.tscn" type="PackedScene" id=9]
+[ext_resource path="res://NPC_worker.tscn" type="PackedScene" id=10]
+[ext_resource path="res://NPC_male_bb.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Drunk2NPC.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Npc_female.tscn" type="PackedScene" id=13]
+[ext_resource path="res://NPC_male_sunglasses.tscn" type="PackedScene" id=14]
 
 [sub_resource type="CapsuleMesh" id=1]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 3.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 14.2858
+height = 48.5715
 
 [node name="World0" type="Node2D"]
 
@@ -32,10 +45,20 @@ position = Vector2( 233.63, 110.733 )
 scale = Vector2( 0.38, 0.393 )
 texture = ExtResource( 2 )
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Shop"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shop/StaticBody2D"]
+polygon = PoolVector2Array( -91.1316, -126.547, 93.0789, -126.547, 93.0789, -34.944, 116.763, -42.5776, 116.763, 130.45, -109.553, 130.45, -109.553, -37.4886, -93.7632, -37.4886 )
+
 [node name="Home" type="Sprite" parent="."]
 position = Vector2( 926, 53 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Home"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Home/StaticBody2D"]
+polygon = PoolVector2Array( 0, -146.667, -106.667, -83.3333, -106.667, 130, 110, 126.667, 103.333, -96.6667 )
 
 [node name="RedHouse" type="Sprite" parent="."]
 position = Vector2( 96, 503 )
@@ -65,18 +88,58 @@ texture = ExtResource( 6 )
 [node name="StaticBody2D" type="StaticBody2D" parent="2story"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="2story/StaticBody2D"]
-visible = false
 polygon = PoolVector2Array( -180, -220, -180, -70, -216.667, -70, -216.667, 233.333, 213.333, 233.333, 213.333, -70, 183.333, -70, 183.333, -220, 133.333, -220, 126.667, -233.333, 90, -233.333, 90, -223.333 )
 
-[node name="Player" type="KinematicBody2D" parent="."]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 775, 113 )
 script = ExtResource( 4 )
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Player"]
-position = Vector2( 928, 100 )
-scale = Vector2( 17, 17 )
+[node name="MeshInstance2D" type="MeshInstance2D" parent="KinematicBody2D"]
+scale = Vector2( 13, 13 )
 mesh = SubResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( 928, 100 )
-scale = Vector2( 1.635, 1.635 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 0, 11 )
+rotation = 1.5708
 shape = SubResource( 2 )
+
+[node name="Drunk" parent="." instance=ExtResource( 8 )]
+position = Vector2( 831, 285 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Drunk"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drunk/StaticBody2D"]
+position = Vector2( -1.42871, 9.99994 )
+shape = SubResource( 3 )
+
+[node name="NPC_female" parent="." instance=ExtResource( 13 )]
+position = Vector2( 856, 314 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="NPC_male_bb" parent="." instance=ExtResource( 11 )]
+position = Vector2( 429, 323 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="NPC_male_sunglasses" parent="." instance=ExtResource( 14 )]
+position = Vector2( 389, 517 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="NPC_worker" parent="." instance=ExtResource( 10 )]
+position = Vector2( 266, 134 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="NPC_gangster" parent="." instance=ExtResource( 9 )]
+position = Vector2( 41, 517 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="NPC_Drunk2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 891, 290 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Bushes" type="StaticBody2D" parent="."]
+position = Vector2( 297, 229 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bushes"]
+polygon = PoolVector2Array( 1, -2, -6, 7, -6, 82, 1, 88, 113, 88, 114, -4, 92, 0, 90, 16, 90, 64, 17, 64, 17, -3 )

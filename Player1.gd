@@ -14,7 +14,7 @@ signal bottle_collection()
 signal energy_restored()
 
 #Input and Movement 
-func _process(delta):
+func _process(_delta):
 	if is_injured:
 		return # Player can't move if injured 
 	var velocity = Vector2.ZERO
