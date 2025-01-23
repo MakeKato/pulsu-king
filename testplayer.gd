@@ -10,7 +10,7 @@ func _ready():
 	# Initialize any necessary values if needed
 	pass
 
-func _process(delta):
+func _process(_delta):
 	# Reset velocity to (0, 0) at the start of each frame
 	velocity = Vector2()
 
