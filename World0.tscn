@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://World.tres" type="TileSet" id=1]
 [ext_resource path="res://B03.png" type="Texture" id=2]
 [ext_resource path="res://H03.png" type="Texture" id=3]
-[ext_resource path="res://testplayer.gd" type="Script" id=4]
+[ext_resource path="res://hero/hero.tscn" type="PackedScene" id=4]
 [ext_resource path="res://H05.png" type="Texture" id=5]
 [ext_resource path="res://B02.png" type="Texture" id=6]
 [ext_resource path="res://H06.png" type="Texture" id=7]
@@ -14,12 +14,7 @@
 [ext_resource path="res://Drunk2NPC.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Npc_female.tscn" type="PackedScene" id=13]
 [ext_resource path="res://NPC_male_sunglasses.tscn" type="PackedScene" id=14]
-
-[sub_resource type="CapsuleMesh" id=1]
-
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 3.0
-height = 16.0
+[ext_resource path="res://hero/hero.gd" type="Script" id=15]
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 14.2858
@@ -90,19 +85,6 @@ texture = ExtResource( 6 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="2story/StaticBody2D"]
 polygon = PoolVector2Array( -180, -220, -180, -70, -216.667, -70, -216.667, 233.333, 213.333, 233.333, 213.333, -70, 183.333, -70, 183.333, -220, 133.333, -220, 126.667, -233.333, 90, -233.333, 90, -223.333 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-position = Vector2( 775, 113 )
-script = ExtResource( 4 )
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="KinematicBody2D"]
-scale = Vector2( 13, 13 )
-mesh = SubResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-position = Vector2( 0, 11 )
-rotation = 1.5708
-shape = SubResource( 2 )
-
 [node name="Drunk" parent="." instance=ExtResource( 8 )]
 position = Vector2( 831, 285 )
 scale = Vector2( 0.7, 0.7 )
@@ -143,3 +125,8 @@ position = Vector2( 297, 229 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bushes"]
 polygon = PoolVector2Array( 1, -2, -6, 7, -6, 82, 1, 88, 113, 88, 114, -4, 92, 0, 90, 16, 90, 64, 17, 64, 17, -3 )
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 657, 335 )
+scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 15 )
