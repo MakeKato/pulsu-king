@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # Speed of the character
-var speed = 200
+var speed = 100
 
 # Reference to the AnimatedSprite node
 onready var animated_sprite = $AnimatedSprite

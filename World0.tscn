@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://World.tres" type="TileSet" id=1]
 [ext_resource path="res://B03.png" type="Texture" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://Npc_female.tscn" type="PackedScene" id=13]
 [ext_resource path="res://NPC_male_sunglasses.tscn" type="PackedScene" id=14]
 [ext_resource path="res://hero/hero.gd" type="Script" id=15]
+[ext_resource path="res://hero/getajob.png" type="Texture" id=16]
+[ext_resource path="res://getajob.gd" type="Script" id=17]
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 14.2858
@@ -31,6 +33,22 @@ height = 40.0001
 [sub_resource type="CapsuleShape2D" id=6]
 radius = 15.7142
 height = 45.7144
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 61.0
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="World0" type="Node2D"]
 
@@ -155,11 +173,6 @@ position = Vector2( 297, 229 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bushes"]
 polygon = PoolVector2Array( 1, -2, -6, 7, -6, 82, 1, 88, 113, 88, 114, -4, 92, 0, 90, 16, 90, 64, 17, 64, 17, -3 )
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 4 )]
-position = Vector2( 657, 335 )
-scale = Vector2( 0.7, 0.7 )
-script = ExtResource( 15 )
-
 [node name="Tree1" type="StaticBody2D" parent="."]
 position = Vector2( 32, 243 )
 
@@ -198,3 +211,24 @@ position = Vector2( 303, 145 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mailbox"]
 polygon = PoolVector2Array( -13, -17, 13, -17, 13, 13, -14, 13 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 43, 461 )
+script = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 78, 61 )
+shape = SubResource( 7 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
+position = Vector2( 21, -1 )
+frames = SubResource( 9 )
+playing = true
+
+[node name="Hero" parent="." instance=ExtResource( 4 )]
+position = Vector2( 657, 335 )
+scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 15 )
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_Area2D_body_exited"]
