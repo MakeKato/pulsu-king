@@ -7,12 +7,14 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	print("Body entered:", body.name)  # Debugging
-	if body.name == "Hero":  # Ensure the player's node name is "Hero"
+
+	if body.is_in_group("Player"):  # Detect by group, not by name
 		speech_bubble.visible = true
-		speech_bubble.play("default")  # Replace "default" with your animation name
+		speech_bubble.play("default")  # Replace with your animation name
 
 func _on_Area2D_body_exited(body):
 	print("Body exited:", body.name)  # Debugging
-	if body.name == "Hero":
+
+	if body.is_in_group("Player"):  # Detect by group, not by name
 		speech_bubble.stop()
 		speech_bubble.visible = false
