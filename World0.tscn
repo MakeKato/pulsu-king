@@ -259,19 +259,19 @@ position = Vector2( 915, 328 )
 [node name="BottleSpawn8" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
 position = Vector2( 334, 271 )
 
-[node name="SceneTransition" type="Area2D" parent="."]
+[node name="ScW2Transition" type="Area2D" parent="."]
 position = Vector2( 1016, 347 )
 script = ExtResource( 18 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTransition"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScW2Transition"]
 position = Vector2( 1, 21 )
 shape = SubResource( 10 )
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="ScW32Transition" type="Area2D" parent="."]
 position = Vector2( 553, 577 )
 script = ExtResource( 19 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScW32Transition"]
 position = Vector2( 8, 27 )
 shape = SubResource( 11 )
 
