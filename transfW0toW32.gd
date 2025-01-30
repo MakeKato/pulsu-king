@@ -1,7 +1,7 @@
 extends Area2D
 
-export(String, FILE, "*.tscn") var next_scene_path = "res://World2.tscn"
-export(Vector2) var player_spawn_position = Vector2(30, 420)
+export(String, FILE, "*.tscn") var next_scene_path = "res://world32.tscn"
+export(Vector2) var player_spawn_position = Vector2(565, 30)
 
 func _ready():
 	connect("body_entered", self, "_on_body_entered")  # Ensures signal is connected
@@ -10,4 +10,4 @@ func _on_body_entered(body):
 	if body.is_in_group("Player"):  # Hero.tscn must be in the "Player" group
 		GameManager.spawn_position = player_spawn_position
 		print("Transitioning to:", next_scene_path)  # Debugging
-		get_tree().change_scene(next_scene_path)  # Load World2.tscn
+		get_tree().change_scene(next_scene_path)  # Load World32.tscn
