@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://World.tres" type="TileSet" id=1]
 [ext_resource path="res://B03.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://hero/hero.gd" type="Script" id=15]
 [ext_resource path="res://hero/getajob.png" type="Texture" id=16]
 [ext_resource path="res://getajob.gd" type="Script" id=17]
+[ext_resource path="res://TransfW2.gd" type="Script" id=18]
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 14.2858
@@ -49,6 +50,9 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 7, 16 )
 
 [node name="World0" type="Node2D"]
 
@@ -229,6 +233,38 @@ playing = true
 position = Vector2( 657, 335 )
 scale = Vector2( 0.7, 0.7 )
 script = ExtResource( 15 )
+
+[node name="BottleSpawn1" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 175, 532 )
+
+[node name="BottleSpawn2" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 336, 532 )
+
+[node name="BottleSpawn3" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 528, 532 )
+
+[node name="BottleSpawn4" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 528, 341 )
+
+[node name="BottleSpawn5" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 336, 149 )
+
+[node name="BottleSpawn6" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 804, 322 )
+
+[node name="BottleSpawn7" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 915, 328 )
+
+[node name="BottleSpawn8" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 334, 271 )
+
+[node name="SceneTransition" type="Area2D" parent="."]
+position = Vector2( 1016, 347 )
+script = ExtResource( 18 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTransition"]
+position = Vector2( 1, 21 )
+shape = SubResource( 10 )
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_Area2D_body_exited"]
