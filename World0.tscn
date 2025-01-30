@@ -3,7 +3,7 @@
 [ext_resource path="res://World.tres" type="TileSet" id=1]
 [ext_resource path="res://B03.png" type="Texture" id=2]
 [ext_resource path="res://H03.png" type="Texture" id=3]
-[ext_resource path="res://hero/hero.tscn" type="PackedScene" id=4]
+[ext_resource path="res://teeplayer.gd" type="Script" id=4]
 [ext_resource path="res://H05.png" type="Texture" id=5]
 [ext_resource path="res://B02.png" type="Texture" id=6]
 [ext_resource path="res://H06.png" type="Texture" id=7]
@@ -14,7 +14,7 @@
 [ext_resource path="res://Drunk2NPC.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Npc_female.tscn" type="PackedScene" id=13]
 [ext_resource path="res://NPC_male_sunglasses.tscn" type="PackedScene" id=14]
-[ext_resource path="res://hero/hero.gd" type="Script" id=15]
+[ext_resource path="res://hero/hero.tscn" type="PackedScene" id=15]
 [ext_resource path="res://hero/getajob.png" type="Texture" id=16]
 [ext_resource path="res://getajob.gd" type="Script" id=17]
 [ext_resource path="res://TransfW2.gd" type="Script" id=18]
@@ -55,6 +55,8 @@ animations = [ {
 extents = Vector2( 7, 16 )
 
 [node name="World0" type="Node2D"]
+script = ExtResource( 4 )
+player_scene = ExtResource( 15 )
 
 [node name="Ground" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -228,11 +230,6 @@ shape = SubResource( 7 )
 position = Vector2( 21, -1 )
 frames = SubResource( 9 )
 playing = true
-
-[node name="Hero" parent="." instance=ExtResource( 4 )]
-position = Vector2( 657, 335 )
-scale = Vector2( 0.7, 0.7 )
-script = ExtResource( 15 )
 
 [node name="BottleSpawn1" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
 position = Vector2( 175, 532 )

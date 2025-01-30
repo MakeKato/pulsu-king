@@ -1,8 +1,9 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://hero/hero_walk_with_bag.png" type="Texture" id=1]
 [ext_resource path="res://hero/hero_drink.png" type="Texture" id=2]
 [ext_resource path="res://hero/hero_dead.png" type="Texture" id=3]
+[ext_resource path="res://hero/hero.gd" type="Script" id=4]
 
 [sub_resource type="AtlasTexture" id=50]
 flags = 4
@@ -247,6 +248,7 @@ radius = 8.0
 height = 14.0
 
 [node name="KinematicBody2D" type="KinematicBody2D" groups=["Player"]]
+script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 17 )
