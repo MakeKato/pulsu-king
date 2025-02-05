@@ -5,6 +5,11 @@
 [ext_resource path="res://hero/hero_dead.png" type="Texture" id=3]
 [ext_resource path="res://hero/hero.gd" type="Script" id=4]
 
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 128, 45, 128, 83 )
+
 [sub_resource type="AtlasTexture" id=50]
 flags = 4
 atlas = ExtResource( 3 )
@@ -175,11 +180,6 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 45, 128, 83 )
 
-[sub_resource type="AtlasTexture" id=19]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 128, 45, 128, 83 )
-
 [sub_resource type="AtlasTexture" id=20]
 flags = 4
 atlas = ExtResource( 1 )
@@ -222,6 +222,11 @@ region = Rect2( 896, 45, 128, 83 )
 
 [sub_resource type="SpriteFrames" id=17]
 animations = [ {
+"frames": [ SubResource( 19 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ) ],
 "loop": false,
 "name": "die",
@@ -230,11 +235,6 @@ animations = [ {
 "frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
 "loop": true,
 "name": "drink",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 19 ) ],
-"loop": true,
-"name": "idle",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
@@ -249,6 +249,7 @@ height = 14.0
 
 [node name="KinematicBody2D" type="KinematicBody2D" groups=["Player"]]
 scale = Vector2( 0.7, 0.7 )
+z_index = 3
 collision_mask = 2
 script = ExtResource( 4 )
 
