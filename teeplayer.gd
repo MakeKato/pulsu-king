@@ -8,5 +8,5 @@ func _ready():
 	add_child(player)
 
 
-func _on_Area2D2_body_entered(body):
+func _on_CollisionPolygon2D_draw():
 	pass # Replace with function body.
