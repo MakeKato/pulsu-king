@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://city1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://city2.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://DrunkNPC.tscn" type="PackedScene" id=21]
 [ext_resource path="res://foff.png" type="Texture" id=22]
 [ext_resource path="res://Foff.gd" type="Script" id=23]
+[ext_resource path="res://zombie-20.wav" type="AudioStream" id=24]
 
 [sub_resource type="TileSet" id=4]
 0/name = "terrain_atlas.png 0"
@@ -100,11 +101,23 @@ extents = Vector2( 4, 32 )
 [sub_resource type="RectangleShape2D" id=34]
 extents = Vector2( 32, 4 )
 
-[sub_resource type="RectangleShape2D" id=35]
-extents = Vector2( 8, 16 )
+[sub_resource type="CapsuleShape2D" id=41]
+radius = 11.4286
+height = 62.857
+
+[sub_resource type="CapsuleShape2D" id=42]
+radius = 18.5714
+height = 31.4285
+
+[sub_resource type="CapsuleShape2D" id=43]
+radius = 17.7778
+height = 45.0795
 
 [sub_resource type="RectangleShape2D" id=36]
 extents = Vector2( 12, 16 )
+
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 8, 16 )
 
 [sub_resource type="RectangleShape2D" id=37]
 extents = Vector2( 0, 53 )
@@ -118,20 +131,29 @@ extents = Vector2( 52, 12 )
 [sub_resource type="RectangleShape2D" id=40]
 extents = Vector2( 0, 57 )
 
-[sub_resource type="CapsuleShape2D" id=41]
-radius = 11.4286
-height = 62.857
-
-[sub_resource type="CapsuleShape2D" id=42]
-radius = 18.5714
-height = 31.4285
-
-[sub_resource type="CapsuleShape2D" id=43]
-radius = 17.7778
-height = 45.0795
-
 [sub_resource type="RectangleShape2D" id=44]
 extents = Vector2( 48, 44 )
+
+[sub_resource type="RectangleShape2D" id=47]
+extents = Vector2( 24, 12 )
+
+[sub_resource type="RectangleShape2D" id=48]
+extents = Vector2( 24, 12 )
+
+[sub_resource type="RectangleShape2D" id=49]
+extents = Vector2( 24, 12 )
+
+[sub_resource type="RectangleShape2D" id=50]
+extents = Vector2( 24, 12 )
+
+[sub_resource type="RectangleShape2D" id=51]
+extents = Vector2( 12, 28 )
+
+[sub_resource type="RectangleShape2D" id=52]
+extents = Vector2( 28, 12 )
+
+[sub_resource type="RectangleShape2D" id=53]
+extents = Vector2( 8, 12 )
 
 [sub_resource type="CircleShape2D" id=45]
 radius = 63.3877
@@ -320,54 +342,6 @@ position = Vector2( 16, 580 )
 [node name="BottleSpawn5" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
 position = Vector2( 976, 470 )
 
-[node name="Postilaatikko1" type="Sprite" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Postilaatikko1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Postilaatikko1/StaticBody2D"]
-position = Vector2( 816, 144 )
-shape = SubResource( 35 )
-
-[node name="Postilaatikko2" type="Sprite" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Postilaatikko2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Postilaatikko2/StaticBody2D"]
-position = Vector2( 748, 560 )
-shape = SubResource( 36 )
-
-[node name="Pudotus" type="Sprite" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Pudotus"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pudotus/StaticBody2D"]
-position = Vector2( 928, 53 )
-shape = SubResource( 37 )
-
-[node name="Pudotus2" type="Sprite" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Pudotus2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pudotus2/StaticBody2D"]
-position = Vector2( 912, 108 )
-shape = SubResource( 38 )
-
-[node name="Pudotus3" type="Sprite" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Pudotus3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pudotus3/StaticBody2D"]
-position = Vector2( 780, 116 )
-shape = SubResource( 39 )
-
-[node name="Pudotus4" type="Sprite" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Pudotus4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pudotus4/StaticBody2D"]
-position = Vector2( 736, 47 )
-shape = SubResource( 40 )
-
 [node name="Drunk1" parent="." instance=ExtResource( 20 )]
 position = Vector2( 120, 531 )
 scale = Vector2( 0.7, 0.7 )
@@ -401,6 +375,54 @@ z_index = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drunk3/StaticBody2D"]
 position = Vector2( 7.62939e-06, 14.2856 )
 shape = SubResource( 43 )
+
+[node name="Postilaatikko2" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Postilaatikko2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Postilaatikko2/StaticBody2D"]
+position = Vector2( 748, 560 )
+shape = SubResource( 36 )
+
+[node name="Postilaatikko1" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Postilaatikko1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Postilaatikko1/StaticBody2D"]
+position = Vector2( 816, 144 )
+shape = SubResource( 35 )
+
+[node name="Pudotus" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pudotus"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pudotus/StaticBody2D"]
+position = Vector2( 928, 53 )
+shape = SubResource( 37 )
+
+[node name="Pudotus2" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pudotus2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pudotus2/StaticBody2D"]
+position = Vector2( 912, 108 )
+shape = SubResource( 38 )
+
+[node name="Pudotus3" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pudotus3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pudotus3/StaticBody2D"]
+position = Vector2( 780, 116 )
+shape = SubResource( 39 )
+
+[node name="Pudotus4" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pudotus4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pudotus4/StaticBody2D"]
+position = Vector2( 736, 47 )
+shape = SubResource( 40 )
 
 [node name="Pusikko" type="Sprite" parent="."]
 
@@ -452,6 +474,62 @@ polygon = PoolVector2Array( 280, 344, 288, 344, 288, 320, 312, 304, 312, 264, 26
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Puu6/StaticBody2D"]
 polygon = PoolVector2Array( 280, 504, 288, 504, 288, 480, 312, 464, 312, 424, 264, 424, 264, 464, 280, 480 )
 
+[node name="puskat1" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="puskat1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="puskat1/StaticBody2D"]
+position = Vector2( 96, 244 )
+shape = SubResource( 47 )
+
+[node name="pusikot2" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="pusikot2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pusikot2/StaticBody2D"]
+position = Vector2( 512, 148 )
+shape = SubResource( 48 )
+
+[node name="pusikot3" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="pusikot3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pusikot3/StaticBody2D"]
+position = Vector2( 416, 244 )
+shape = SubResource( 49 )
+
+[node name="pusikot4" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="pusikot4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pusikot4/StaticBody2D"]
+position = Vector2( 768, 244 )
+shape = SubResource( 50 )
+
+[node name="pusikot5" type="Sprite" parent="."]
+
+[node name="Area2D" type="Area2D" parent="pusikot5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pusikot5/Area2D"]
+position = Vector2( 652, 452 )
+shape = SubResource( 51 )
+
+[node name="pusikot 6" type="Sprite" parent="."]
+
+[node name="Area2D" type="Area2D" parent="pusikot 6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pusikot 6/Area2D"]
+position = Vector2( 924, 468 )
+shape = SubResource( 52 )
+
+[node name="puska" type="Sprite" parent="."]
+
+[node name="Area2D" type="Area2D" parent="puska"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="puska/Area2D"]
+position = Vector2( 656, 596 )
+shape = SubResource( 53 )
+
 [node name="Area2D2" type="Area2D" parent="."]
 z_index = 1
 script = ExtResource( 23 )
@@ -465,6 +543,9 @@ position = Vector2( 144, 488 )
 z_index = 1
 frames = SubResource( 46 )
 playing = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D2"]
+stream = ExtResource( 24 )
 
 [connection signal="body_entered" from="TileMap/Area2D2" to="TileMap/Area2D2" method="_on_Area2D2_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]
