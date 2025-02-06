@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://celtic.mp3" type="AudioStream" id=1]
 [ext_resource path="res://scenes/image.png" type="Texture" id=2]
-[ext_resource path="res://battleThemeA.mp3" type="AudioStream" id=3]
 [ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=4]
 [ext_resource path="res://Mainmenu.gd" type="Script" id=5]
 
@@ -84,6 +84,6 @@ margin_bottom = 76.0
 text = "Sulje asetukset"
 
 [node name="Menumusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 1 )
 autoplay = true
 script = ExtResource( 4 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/celtic.mp3-83fb96161bafca76c03d34845f0a9f42.mp3str"
+
+[deps]
+
+source_file="res://celtic.mp3"
+dest_files=[ "res://.import/celtic.mp3-83fb96161bafca76c03d34845f0a9f42.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
