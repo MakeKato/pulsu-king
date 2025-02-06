@@ -264,6 +264,7 @@ position = Vector2( 334, 271 )
 
 [node name="ScW2Transition" type="Area2D" parent="."]
 position = Vector2( 1016, 347 )
+rotation = 0.0277812
 script = ExtResource( 18 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScW2Transition"]

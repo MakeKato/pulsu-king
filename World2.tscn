@@ -6,7 +6,7 @@
 [ext_resource path="res://Bush.png" type="Texture" id=4]
 [ext_resource path="res://hero/hero.tscn" type="PackedScene" id=5]
 [ext_resource path="res://teeplayer.gd" type="Script" id=6]
-[ext_resource path="res://transfW2to0.gd" type="Script" id=7]
+[ext_resource path="res://transfW2toW1.gd" type="Script" id=7]
 [ext_resource path="res://water.gd" type="Script" id=8]
 [ext_resource path="res://scenes/Clock.tscn" type="PackedScene" id=9]
 
@@ -2491,7 +2491,7 @@ extents = Vector2( 66, 187 )
 extents = Vector2( 64, 96 )
 
 [sub_resource type="RectangleShape2D" id=49]
-extents = Vector2( 4, 40 )
+extents = Vector2( 40, 4 )
 
 [node name="World2" type="Node2D"]
 position = Vector2( -1, 0 )
@@ -2629,11 +2629,20 @@ texture = ExtResource( 3 )
 [node name="CanvasLayer" parent="." instance=ExtResource( 9 )]
 layer = 8
 
-[node name="ScW0Transition" type="Area2D" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
+position = Vector2( 65, 336 )
+scale = Vector2( 3.2, 1.6 )
+polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
+
+[node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 7 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScW0Transition"]
-position = Vector2( 5, 400 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 817, 604 )
 shape = SubResource( 49 )
 
 [connection signal="body_entered" from="Vesi&maa/Area2D2" to="Vesi&maa/Area2D2" method="_on_Area2D_body_entered"]

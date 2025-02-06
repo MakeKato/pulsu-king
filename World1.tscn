@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://city1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://city2.tscn" type="PackedScene" id=2]
@@ -15,6 +15,10 @@
 [ext_resource path="res://H05.png" type="Texture" id=13]
 [ext_resource path="res://Area2Dcity.gd" type="Script" id=14]
 [ext_resource path="res://scenes/Clock.tscn" type="PackedScene" id=15]
+[ext_resource path="res://transfW1toW32.gd" type="Script" id=16]
+[ext_resource path="res://transfW1toW2.gd" type="Script" id=17]
+[ext_resource path="res://Bottle.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scripts/SpawnManager.gd" type="Script" id=19]
 
 [sub_resource type="TileSet" id=4]
 0/name = "terrain_atlas.png 0"
@@ -85,6 +89,12 @@ extents = Vector2( 572.788, 134.419 )
 
 [sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 245.48, 120.977 )
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 4, 32 )
+
+[sub_resource type="RectangleShape2D" id=34]
+extents = Vector2( 32, 4 )
 
 [node name="World1" type="Node2D"]
 script = ExtResource( 6 )
@@ -209,5 +219,46 @@ polygon = PoolVector2Array( 784, 56, 896, 56, 896, 0, 872, -16, 792, -8 )
 polygon = PoolVector2Array( 552, 104, 552, 152, 632, 152, 640, 96, 624, 96, 624, 64, 552, 64 )
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 15 )]
+
+[node name="Penkki1" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Penkki1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Penkki1/StaticBody2D"]
+polygon = PoolVector2Array( 0, 128, 0, 160, 56, 160, 56, 128 )
+
+[node name="Penkki2" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Penkki2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Penkki2/StaticBody2D"]
+polygon = PoolVector2Array( 352, 136, 352, 160, 408, 160, 408, 136 )
+
+[node name="ScW32Transition" type="Area2D" parent="."]
+script = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScW32Transition"]
+position = Vector2( 4, 192 )
+shape = SubResource( 33 )
+
+[node name="ScW2Transition" type="Area2D" parent="."]
+script = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScW2Transition"]
+position = Vector2( 704, 4 )
+shape = SubResource( 34 )
+
+[node name="Bottles" type="Node2D" parent="."]
+script = ExtResource( 19 )
+bottle_scene = ExtResource( 18 )
+
+[node name="BottleSpawn1" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 80, 152 )
+
+[node name="BottleSpawn2" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 432, 152 )
+
+[node name="BottleSpawn3" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 528, 470 )
 
 [connection signal="body_entered" from="TileMap/Area2D2" to="TileMap/Area2D2" method="_on_Area2D2_body_entered"]
