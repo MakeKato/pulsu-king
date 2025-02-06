@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://city1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://city2.tscn" type="PackedScene" id=2]
@@ -19,6 +19,10 @@
 [ext_resource path="res://transfW1toW2.gd" type="Script" id=17]
 [ext_resource path="res://Bottle.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scripts/SpawnManager.gd" type="Script" id=19]
+[ext_resource path="res://Drunk2NPC.tscn" type="PackedScene" id=20]
+[ext_resource path="res://DrunkNPC.tscn" type="PackedScene" id=21]
+[ext_resource path="res://foff.png" type="Texture" id=22]
+[ext_resource path="res://Foff.gd" type="Script" id=23]
 
 [sub_resource type="TileSet" id=4]
 0/name = "terrain_atlas.png 0"
@@ -95,6 +99,51 @@ extents = Vector2( 4, 32 )
 
 [sub_resource type="RectangleShape2D" id=34]
 extents = Vector2( 32, 4 )
+
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 8, 16 )
+
+[sub_resource type="RectangleShape2D" id=36]
+extents = Vector2( 12, 16 )
+
+[sub_resource type="RectangleShape2D" id=37]
+extents = Vector2( 0, 53 )
+
+[sub_resource type="RectangleShape2D" id=38]
+extents = Vector2( 16, 4 )
+
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 52, 12 )
+
+[sub_resource type="RectangleShape2D" id=40]
+extents = Vector2( 0, 57 )
+
+[sub_resource type="CapsuleShape2D" id=41]
+radius = 11.4286
+height = 62.857
+
+[sub_resource type="CapsuleShape2D" id=42]
+radius = 18.5714
+height = 31.4285
+
+[sub_resource type="CapsuleShape2D" id=43]
+radius = 17.7778
+height = 45.0795
+
+[sub_resource type="RectangleShape2D" id=44]
+extents = Vector2( 48, 44 )
+
+[sub_resource type="CircleShape2D" id=45]
+radius = 63.3877
+
+[sub_resource type="SpriteFrames" id=46]
+resource_local_to_scene = true
+animations = [ {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="World1" type="Node2D"]
 script = ExtResource( 6 )
@@ -249,16 +298,174 @@ position = Vector2( 704, 4 )
 shape = SubResource( 34 )
 
 [node name="Bottles" type="Node2D" parent="."]
+z_index = 2
 script = ExtResource( 19 )
 bottle_scene = ExtResource( 18 )
 
 [node name="BottleSpawn1" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
-position = Vector2( 80, 152 )
+position = Vector2( 80, 149 )
+z_index = 2
 
 [node name="BottleSpawn2" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
-position = Vector2( 432, 152 )
+position = Vector2( 432, 149 )
+z_index = 2
 
 [node name="BottleSpawn3" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
 position = Vector2( 528, 470 )
+z_index = 2
+
+[node name="BottleSpawn4" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 16, 580 )
+
+[node name="BottleSpawn5" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 976, 470 )
+
+[node name="Postilaatikko1" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Postilaatikko1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Postilaatikko1/StaticBody2D"]
+position = Vector2( 816, 144 )
+shape = SubResource( 35 )
+
+[node name="Postilaatikko2" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Postilaatikko2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Postilaatikko2/StaticBody2D"]
+position = Vector2( 748, 560 )
+shape = SubResource( 36 )
+
+[node name="Pudotus" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pudotus"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pudotus/StaticBody2D"]
+position = Vector2( 928, 53 )
+shape = SubResource( 37 )
+
+[node name="Pudotus2" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pudotus2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pudotus2/StaticBody2D"]
+position = Vector2( 912, 108 )
+shape = SubResource( 38 )
+
+[node name="Pudotus3" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pudotus3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pudotus3/StaticBody2D"]
+position = Vector2( 780, 116 )
+shape = SubResource( 39 )
+
+[node name="Pudotus4" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pudotus4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pudotus4/StaticBody2D"]
+position = Vector2( 736, 47 )
+shape = SubResource( 40 )
+
+[node name="Drunk1" parent="." instance=ExtResource( 20 )]
+position = Vector2( 120, 531 )
+scale = Vector2( 0.7, 0.7 )
+z_index = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Drunk1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drunk1/StaticBody2D"]
+position = Vector2( 0, 15.7142 )
+shape = SubResource( 41 )
+
+[node name="Drunk2" parent="." instance=ExtResource( 21 )]
+position = Vector2( 75, 536 )
+scale = Vector2( 0.7, 0.7 )
+z_index = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Drunk2"]
+position = Vector2( 41.4286, -11.4288 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drunk2/StaticBody2D"]
+position = Vector2( -41.4286, 22.857 )
+shape = SubResource( 42 )
+
+[node name="Drunk3" parent="." instance=ExtResource( 20 )]
+position = Vector2( 104, 568 )
+scale = Vector2( 0.9, 0.7 )
+z_index = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Drunk3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drunk3/StaticBody2D"]
+position = Vector2( 7.62939e-06, 14.2856 )
+shape = SubResource( 43 )
+
+[node name="Pusikko" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pusikko"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pusikko/StaticBody2D"]
+position = Vector2( 480, 380 )
+shape = SubResource( 44 )
+
+[node name="Puu1" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Puu1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Puu1/StaticBody2D"]
+polygon = PoolVector2Array( 128, 88, 128, 64, 152, 40, 152, 8, 104, 8, 104, 48, 120, 64, 120, 88 )
+
+[node name="Puu2" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Puu2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Puu2/StaticBody2D"]
+polygon = PoolVector2Array( 120, 344, 128, 344, 128, 320, 152, 296, 152, 264, 104, 264, 104, 304, 120, 320 )
+
+[node name="Puu3" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Puu3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Puu3/StaticBody2D"]
+polygon = PoolVector2Array( 120, 504, 128, 504, 128, 480, 160, 456, 160, 424, 104, 424, 104, 464, 120, 480 )
+
+[node name="Puu4" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Puu4"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Puu4/StaticBody2D"]
+polygon = PoolVector2Array( 280, 88, 288, 88, 288, 64, 312, 48, 312, 8, 264, 8, 264, 40, 280, 64 )
+
+[node name="Puu5" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Puu5"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Puu5/StaticBody2D"]
+polygon = PoolVector2Array( 280, 344, 288, 344, 288, 320, 312, 304, 312, 264, 264, 264, 264, 304, 280, 320 )
+
+[node name="Puu6" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Puu6"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Puu6/StaticBody2D"]
+polygon = PoolVector2Array( 280, 504, 288, 504, 288, 480, 312, 464, 312, 424, 264, 424, 264, 464, 280, 480 )
+
+[node name="Area2D2" type="Area2D" parent="."]
+z_index = 1
+script = ExtResource( 23 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 73, 479 )
+shape = SubResource( 45 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D2/CollisionShape2D"]
+position = Vector2( 89, 65 )
+z_index = 1
+frames = SubResource( 46 )
+playing = true
 
 [connection signal="body_entered" from="TileMap/Area2D2" to="TileMap/Area2D2" method="_on_Area2D2_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_exited"]

@@ -2645,4 +2645,13 @@ script = ExtResource( 7 )
 position = Vector2( 817, 604 )
 shape = SubResource( 49 )
 
+[node name="Pääsiäissaarinaama" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pääsiäissaarinaama"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pääsiäissaarinaama/StaticBody2D"]
+polygon = PoolVector2Array( 41, 120, 81, 120, 81, 96, 89, 96, 89, 88, 81, 80, 81, 40, 49, 40, 41, 80, 41, 104 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+
 [connection signal="body_entered" from="Vesi&maa/Area2D2" to="Vesi&maa/Area2D2" method="_on_Area2D_body_entered"]
