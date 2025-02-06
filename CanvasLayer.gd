@@ -34,8 +34,9 @@ func set_time(new_hour, new_minute):
 	update_clock_display()
 
 # Bottle system
-var bottles_collected = 0
 onready var score_label = $ScoreLabel  
+
+onready var Inventory = preload("res://Scripts/inventory.gd").new()
 
 func _ready():
 	# Load and instance the bottle scene
@@ -51,9 +52,10 @@ func _ready():
 		
 func _on_Bottle_collected():
 	# Increment the bottle count and update the score label
-	bottles_collected += 1
+	Inventory.add_bottles(1)  # Ensure this updates the Inventory singleton
 	update_score()
 
 func update_score():
 	var total_bottles = Inventory.get_bottle_count()
+	print("Updating score. Total bottles: ", total_bottles)  # Debugging
 	score_label.text = "Pulloja: %d" % total_bottles
