@@ -1,6 +1,6 @@
 extends Area2D
 
-export(String, FILE, "*.tscn") var next_scene_path = "res://World32.tscn"
+export(String, FILE, "*.tscn") var next_scene_path = "res://world32.tscn"
 export(Vector2) var player_spawn_position = Vector2(950, 190)
 
 func _ready():
