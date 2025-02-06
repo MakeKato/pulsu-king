@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://city1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://city2.tscn" type="PackedScene" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://scenes/Clock.tscn" type="PackedScene" id=15]
 [ext_resource path="res://transfW1toW32.gd" type="Script" id=16]
 [ext_resource path="res://transfW1toW2.gd" type="Script" id=17]
+[ext_resource path="res://Bottle.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scripts/SpawnManager.gd" type="Script" id=19]
 
 [sub_resource type="TileSet" id=4]
 0/name = "terrain_atlas.png 0"
@@ -245,5 +247,18 @@ script = ExtResource( 17 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScW2Transition"]
 position = Vector2( 704, 4 )
 shape = SubResource( 34 )
+
+[node name="Bottles" type="Node2D" parent="."]
+script = ExtResource( 19 )
+bottle_scene = ExtResource( 18 )
+
+[node name="BottleSpawn1" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 80, 152 )
+
+[node name="BottleSpawn2" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 432, 152 )
+
+[node name="BottleSpawn3" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 528, 470 )
 
 [connection signal="body_entered" from="TileMap/Area2D2" to="TileMap/Area2D2" method="_on_Area2D2_body_entered"]
