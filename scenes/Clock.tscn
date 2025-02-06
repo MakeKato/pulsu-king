@@ -27,5 +27,4 @@ margin_bottom = 14.0
 theme = SubResource( 1 )
 text = "Pulloja: 0"
 uppercase = true
-percent_visible = -0.111111
 script = ExtResource( 3 )
