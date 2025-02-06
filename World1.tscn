@@ -460,8 +460,8 @@ script = ExtResource( 23 )
 position = Vector2( 73, 479 )
 shape = SubResource( 45 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D2/CollisionShape2D"]
-position = Vector2( 89, 65 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D2"]
+position = Vector2( 144, 488 )
 z_index = 1
 frames = SubResource( 46 )
 playing = true
