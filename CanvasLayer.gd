@@ -1,8 +1,9 @@
 extends CanvasLayer
 
+# Time system
 onready var time_label = $ClockLabel  
-var hour = 8    #
-var minute = 0 
+var hour = 8
+var minute = 0
 var time_speed = 0.356
 var elapsed_time = 0.0  
 
@@ -32,20 +33,27 @@ func set_time(new_hour, new_minute):
 	minute = new_minute
 	update_clock_display()
 
-var bottles_collected = 0  
+# Bottle system
+var bottles_collected = 0
 onready var score_label = $ScoreLabel  
 
 func _ready():
-	
-	var pullo_scene = preload("res://scenes/Pullo.tscn")
+	# Load and instance the bottle scene
+	var pullo_scene = preload("res://Bottle.tscn")
 	var pullo_instance = pullo_scene.instance()
 	add_child(pullo_instance)
 	
-	pullo_instance.connect("collected", self, "_on_pullo_collected")
-
-func _on_pullo_collected():
+	if pullo_instance.has_signal("collected"):
+		print("Signal connected successfully!")
+		pullo_instance.connect("collected", self, "_on_Bottle_collected")
+	else:
+		print("Error: Bottle does not have 'collected' signal!")
+		
+func _on_Bottle_collected():
+	# Increment the bottle count and update the score label
 	bottles_collected += 1
 	update_score()
 
 func update_score():
-	score_label.text = "Pulloja: %d" % bottles_collected
+	var total_bottles = Inventory.get_bottle_count()
+	score_label.text = "Pulloja: %d" % total_bottles
