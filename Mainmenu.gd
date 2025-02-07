@@ -1,13 +1,11 @@
 extends Control
 
-# Viittaa solmuihin
 onready var settings_panel = $SettingsPanel  
 onready var volume_slider = $SettingsPanel/VolumeSlider  
 onready var close_button = $SettingsPanel/CloseButton  
 onready var start_button = $AloitaPeli  
 onready var settings_button = $Asetukset  
-onready var music_player = $Menumusic  
-
+onready var music_player = $Menumusic
 
 
 func _ready():
@@ -21,10 +19,7 @@ func _ready():
 
 	
 	volume_slider.value = 1 
-
-	
 	volume_slider.connect("value_changed", self, "_on_volume_slider_changed")
-
 
 func _on_settings_button_pressed():
 	settings_panel.visible = true  
@@ -49,7 +44,6 @@ func _apply_ui_style():
 	style.bg_color = Color(0.2, 0.2, 0.2)  
 	style.border_color = Color(0.8, 0.8, 0.8)  
 	style.border_width_all = 4  
-
 	
 	start_button.add_stylebox_override("normal", style)
 	settings_button.add_stylebox_override("normal", style)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://terrain_atlas.png" type="Texture" id=1]
 [ext_resource path="res://Icons_City.png" type="Texture" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://water.gd" type="Script" id=8]
 [ext_resource path="res://scenes/Clock.tscn" type="PackedScene" id=9]
 [ext_resource path="res://transfW2to0.gd" type="Script" id=10]
+[ext_resource path="res://Bottle.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/SpawnManager.gd" type="Script" id=12]
+[ext_resource path="res://Npc_FWknife.tscn" type="PackedScene" id=13]
 
 [sub_resource type="TileSet" id=1]
 0/name = "terrain_atlas.png 0"
@@ -2491,14 +2494,14 @@ extents = Vector2( 66, 187 )
 [sub_resource type="RectangleShape2D" id=48]
 extents = Vector2( 64, 96 )
 
-[sub_resource type="RectangleShape2D" id=49]
-extents = Vector2( 40, 4 )
-
 [sub_resource type="RectangleShape2D" id=50]
 extents = Vector2( 9.5, 40 )
 
 [sub_resource type="RectangleShape2D" id=51]
 extents = Vector2( 36, 4 )
+
+[sub_resource type="RectangleShape2D" id=52]
+extents = Vector2( 28, 12 )
 
 [node name="World2" type="Node2D"]
 position = Vector2( -1, 0 )
@@ -2609,7 +2612,6 @@ position = Vector2( 24, 40 )
 texture = ExtResource( 4 )
 
 [node name="Area2D2" type="Area2D" parent="Vesi&maa"]
-position = Vector2( -7, 0 )
 collision_layer = 14
 script = ExtResource( 8 )
 
@@ -2636,30 +2638,13 @@ texture = ExtResource( 3 )
 [node name="CanvasLayer" parent="." instance=ExtResource( 9 )]
 layer = 8
 
-[node name="Sprite" type="Sprite" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
-position = Vector2( 65, 336 )
-scale = Vector2( 3.2, 1.6 )
-polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
-
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource( 7 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 817, 604 )
-shape = SubResource( 49 )
-
 [node name="Pääsiäissaarinaama" type="Sprite" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Pääsiäissaarinaama"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pääsiäissaarinaama/StaticBody2D"]
+position = Vector2( 1, 0 )
 polygon = PoolVector2Array( 41, 120, 81, 120, 81, 96, 89, 96, 89, 88, 81, 80, 81, 40, 49, 40, 41, 80, 41, 104 )
-
-[node name="Sprite3" type="Sprite" parent="."]
 
 [node name="ScW0Transition" type="Area2D" parent="."]
 script = ExtResource( 10 )
@@ -2674,5 +2659,125 @@ script = ExtResource( 7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScW1Transition"]
 position = Vector2( 813, 604 )
 shape = SubResource( 51 )
+
+[node name="tolppa" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tolppa"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tolppa/StaticBody2D"]
+polygon = PoolVector2Array( 97, 184, 121, 184, 121, 112, 105, 104, 105, 176 )
+
+[node name="tolppa2" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tolppa2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tolppa2/StaticBody2D"]
+position = Vector2( 0, -88 )
+polygon = PoolVector2Array( 97, 184, 121, 184, 121, 112, 105, 104, 105, 176 )
+
+[node name="tolppa3" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tolppa3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tolppa3/StaticBody2D"]
+position = Vector2( -95, 32 )
+polygon = PoolVector2Array( 97, 184, 121, 184, 121, 112, 105, 104, 105, 176 )
+
+[node name="Penkki" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Penkki"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Penkki/StaticBody2D"]
+position = Vector2( 61, 332 )
+shape = SubResource( 52 )
+
+[node name="Penkki2" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Penkki2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Penkki2/StaticBody2D"]
+position = Vector2( 769, 272 )
+shape = SubResource( 52 )
+
+[node name="Penkki3" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Penkki3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Penkki3/StaticBody2D"]
+position = Vector2( 640, 432 )
+shape = SubResource( 52 )
+
+[node name="Metsä" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Metsä"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Metsä/StaticBody2D"]
+polygon = PoolVector2Array( 441, 168, 521, 184, 521, 112, 561, 136, 561, 168, 585, 168, 585, 184, 609, 176, 609, 168, 633, 168, 633, 160, 665, 160, 665, 128, 681, 136, 681, 104, 697, 104, 697, 56, 665, 24, 641, 32, 617, 88, 609, 64, 625, 56, 601, 32, 577, 48, 537, 24, 521, 32, 497, 24, 473, 56, 449, 40, 425, 56, 433, 72, 417, 80, 393, 112, 401, 128, 393, 136, 401, 144, 401, 152, 425, 152, 417, 168 )
+
+[node name="Puutjapuskat" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Puutjapuskat"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Puutjapuskat/StaticBody2D"]
+polygon = PoolVector2Array( 865, 56, 881, 88, 937, 88, 937, 104, 961, 96, 969, 112, 993, 112, 985, 88, 993, 72, 993, 56, 985, 48, 961, 16, 945, 24, 905, 0, 881, 16, 881, 40 )
+
+[node name="Kivi" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Kivi"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Kivi/StaticBody2D"]
+position = Vector2( 1, 0 )
+polygon = PoolVector2Array( 833, 256, 849, 272, 833, 272, 833, 280, 873, 280, 889, 272, 889, 248, 841, 240 )
+
+[node name="kivi2" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="kivi2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="kivi2/StaticBody2D"]
+polygon = PoolVector2Array( 937, 280, 953, 280, 961, 272, 953, 256, 937, 264, 929, 272 )
+
+[node name="kivi3" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="kivi3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="kivi3/StaticBody2D"]
+position = Vector2( -63, -64 )
+polygon = PoolVector2Array( 937, 280, 953, 280, 961, 272, 953, 256, 937, 264, 929, 272 )
+
+[node name="kivi4" type="Sprite" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="kivi4"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="kivi4/StaticBody2D"]
+polygon = PoolVector2Array( 897, 304, 905, 312, 921, 312, 929, 304, 921, 296 )
+
+[node name="BottleSpawn1" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 16, 32 )
+
+[node name="BottleSpawn2" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 112, 346 )
+
+[node name="BottleSpawn3" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 544, 150 )
+
+[node name="BottleSpawn4" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 816, 275 )
+
+[node name="BottleSpawn5" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 688, 440 )
+
+[node name="BottleSpawn6" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 448, 512 )
+
+[node name="BottleSpawn7" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 920, 248 )
+
+[node name="Bottles" type="Node2D" parent="."]
+script = ExtResource( 12 )
+bottle_scene = ExtResource( 11 )
+
+[node name="Node2D" parent="." instance=ExtResource( 13 )]
+position = Vector2( 705, 56 )
+scale = Vector2( 0.8, 0.8 )
 
 [connection signal="body_entered" from="Vesi&maa/Area2D2" to="Vesi&maa/Area2D2" method="_on_Area2D_body_entered"]

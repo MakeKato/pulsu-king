@@ -10,3 +10,7 @@ func _ready():
 
 func _on_CollisionPolygon2D_draw():
 	pass # Replace with function body.
+
+
+func _on_Area2D_body_exited(body):
+	pass # Replace with function body.

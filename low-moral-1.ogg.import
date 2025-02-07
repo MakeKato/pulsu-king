@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/low-moral-1.ogg-71d8a03db40eff23590ed5bca9cbadef.oggstr"
+
+[deps]
+
+source_file="res://low-moral-1.ogg"
+dest_files=[ "res://.import/low-moral-1.ogg-71d8a03db40eff23590ed5bca9cbadef.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
