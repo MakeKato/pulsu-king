@@ -31,10 +31,10 @@ func _on_close_button_pressed():
 
 func _on_volume_slider_changed(value):
 	
-	var new_volume = lerp(-40, 0, value)  
+	var new_volume = lerp(-80, 0, value)  
 	music_player.volume_db = new_volume  
 	
-	music_player.volume_db = clamp(music_player.volume_db, -40, 0)
+	music_player.volume_db = clamp(music_player.volume_db, -80, 0)
 	
 	print("Current Volume: ", music_player.volume_db)
 	
