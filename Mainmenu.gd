@@ -11,14 +11,12 @@ onready var music_player = $Menumusic
 func _ready():
 	
 	settings_panel.visible = false
-
-	
 	settings_button.connect("pressed", self, "_on_settings_button_pressed")
 	close_button.connect("pressed", self, "_on_close_button_pressed")
 	start_button.connect("pressed", self, "_on_start_button_pressed")
 
 	
-	volume_slider.value = 1 
+	volume_slider.value = Settings.volume
 	volume_slider.connect("value_changed", self, "_on_volume_slider_changed")
 
 func _on_settings_button_pressed():
@@ -31,12 +29,12 @@ func _on_close_button_pressed():
 
 func _on_volume_slider_changed(value):
 	
-	var new_volume = lerp(-80, 0, value)  
-	music_player.volume_db = new_volume  
+	var new_volume = lerp(-80, 0, value)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), new_volume)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), new_volume <= -79)
 	
-	music_player.volume_db = clamp(music_player.volume_db, -80, 0)
-	
-	print("Current Volume: ", music_player.volume_db)
+	print("Current Master Volume: ", new_volume)
+
 	
 func _apply_ui_style():
 	

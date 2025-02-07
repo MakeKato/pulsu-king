@@ -29,6 +29,9 @@ anchor_bottom = 1.173
 margin_right = 31.744
 margin_bottom = -95.8
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 128, 0 )
