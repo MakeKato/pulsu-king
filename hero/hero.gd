@@ -34,13 +34,14 @@ func _process(_delta):
 	
 	move_and_slide(velocity)
 	
-func die():
+func die(delay_time = 0.0):
 	is_dead = true
+
+	if delay_time > 0:  
+		yield(get_tree().create_timer(delay_time), "timeout")
+	
 	animated_sprite.play("die")
 	
 	yield(get_tree().create_timer(1.5), "timeout")
-
-	call_deferred("reload_scene")
-
-func reload_scene():
+	
 	get_tree().reload_current_scene()

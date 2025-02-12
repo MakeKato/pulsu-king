@@ -2,11 +2,11 @@ extends KinematicBody2D
 
 onready var player_detector = $Area2D
 onready var anim = $AnimatedSprite
-onready var attack_sound = $AudioStreamPlayer2D  # Viittaus ääniefektiin
-var has_played_attack_sound = false  # Tarkistaa, onko ääni jo toistettu
+onready var attack_sound = $AudioStreamPlayer2D
+var has_played_attack_sound = false  
 
 func _ready():
-	anim.play("idle")  # Aloittaa idle-animaation
+	anim.play("idle")
 	
 	if player_detector:
 		if not player_detector.is_connected("body_entered", self, "_on_Area2D_body_entered"):
@@ -21,19 +21,22 @@ func _on_Area2D_body_entered(body):
 		print("Animaation pitäisi vaihtua ATTACK")
 		anim.play("attack")
 		
-		# Soitetaan ääni vain kerran, jos sitä ei ole vielä soitettu
+		
 		if attack_sound and !has_played_attack_sound:
-			attack_sound.play()  # Soitetaan ääni
-			has_played_attack_sound = true  # Merkitään, että ääni on soitettu
+			attack_sound.play()
+			has_played_attack_sound = true
+			
+		body.die(1.5) 
+			
 
 func _on_Area2D_body_exited(body):
 	print("Pelaaja poistui alueelta:", body.name)
 	if body.is_in_group("Player"):  
 		print("Pelaaja poistui alueelta, ei ääntä uudelleen")
 		
-		anim.play("idle")  # Vaihdetaan takaisin idle-tilaan
-		has_played_attack_sound = false  # Nollataan äänen toistaminen seuraavaa kertaa varten
+		anim.play("idle")
+		has_played_attack_sound = false
 
-		# Jos ääni on vielä soimassa, pysäytetään se
+		
 		if attack_sound.is_playing():
-			attack_sound.stop()  # Pysäytetään ääni heti
+			attack_sound.stop()
