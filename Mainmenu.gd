@@ -6,6 +6,7 @@ onready var close_button = $SettingsPanel/CloseButton
 onready var start_button = $AloitaPeli  
 onready var settings_button = $Asetukset  
 onready var music_player = $Menumusic
+onready var end_button = $Lopeta 
 
 
 func _ready():
@@ -14,6 +15,7 @@ func _ready():
 	settings_button.connect("pressed", self, "_on_settings_button_pressed")
 	close_button.connect("pressed", self, "_on_close_button_pressed")
 	start_button.connect("pressed", self, "_on_start_button_pressed")
+	end_button.connect("pressed", self, "_on_end_button_pressed")
 
 	
 	volume_slider.value = Settings.volume
@@ -51,4 +53,7 @@ func _apply_ui_style():
 	
 func _on_start_button_pressed():
 	
-	get_tree().change_scene("res://World0.tscn")  
+	get_tree().change_scene("res://World0.tscn")
+	
+func _on_end_button_pressed():
+	get_tree().quit()

@@ -7,7 +7,7 @@ func _on_Area2D_body_entered(body):
 		
 		yield(get_tree().create_timer(1.5), "timeout")
 		
-		get_tree().reload_current_scene()
+		get_tree().change_scene("res://Gameover.tscn")
 
 func _on_Area2D2_body_entered(body):
 	_on_Area2D_body_entered(body)

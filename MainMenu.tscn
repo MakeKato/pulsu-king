@@ -87,3 +87,10 @@ text = "Sulje asetukset"
 stream = ExtResource( 1 )
 autoplay = true
 script = ExtResource( 4 )
+
+[node name="Lopeta" type="Button" parent="."]
+margin_left = 648.0
+margin_top = 272.0
+margin_right = 872.0
+margin_bottom = 312.0
+text = "Lopeta peli"

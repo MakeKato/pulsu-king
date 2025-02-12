@@ -26,7 +26,7 @@ func _on_Area2D_body_entered(body):
 			attack_sound.play()
 			has_played_attack_sound = true
 			
-		body.die(1.5) 
+		body.die(1.5)
 			
 
 func _on_Area2D_body_exited(body):
