@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://art/Gameover.png" type="Texture" id=1]
 [ext_resource path="res://Gameover.gd" type="Script" id=2]
+[ext_resource path="res://Game Over.ogg" type="AudioStream" id=3]
+[ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=4]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Gameover.png 0"
@@ -43,3 +45,8 @@ margin_top = 197.0
 margin_right = 233.0
 margin_bottom = 242.0
 text = "Lopeta Peli"
+
+[node name="Gameover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+script = ExtResource( 4 )
