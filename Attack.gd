@@ -32,7 +32,7 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D_body_exited(body):
 	print("Pelaaja poistui alueelta:", body.name)
 	if body.is_in_group("Player"):  
-		print("Pelaaja poistui alueelta, ei ääntä uudelleen")
+		print("Game over! You were stabbed!")
 		
 		anim.play("idle")
 		has_played_attack_sound = false
