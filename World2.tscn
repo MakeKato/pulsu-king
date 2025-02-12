@@ -2772,11 +2772,14 @@ position = Vector2( 448, 512 )
 [node name="BottleSpawn7" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
 position = Vector2( 920, 248 )
 
+[node name="BottleSpawn8" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 725, 64 )
+
 [node name="Bottles" type="Node2D" parent="."]
 script = ExtResource( 12 )
 bottle_scene = ExtResource( 11 )
 
-[node name="Node2D" parent="." instance=ExtResource( 13 )]
+[node name="Npc_FWknife" parent="." instance=ExtResource( 13 )]
 position = Vector2( 705, 56 )
 scale = Vector2( 0.8, 0.8 )
 

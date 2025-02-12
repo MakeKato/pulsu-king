@@ -223,7 +223,7 @@ region = Rect2( 896, 45, 128, 83 )
 [sub_resource type="SpriteFrames" id=17]
 animations = [ {
 "frames": [ SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ) ],
-"loop": true,
+"loop": false,
 "name": "die",
 "speed": 10.0
 }, {
@@ -255,8 +255,7 @@ script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=["Player"]]
 frames = SubResource( 17 )
-animation = "die"
-frame = 11
+animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2( -7, 34 )

@@ -1,13 +1,15 @@
 extends KinematicBody2D
 
-# Speed of the character
+
 var speed = 100
 
-# Reference to the AnimatedSprite node
 onready var animated_sprite = $AnimatedSprite
+var is_dead = false
 
 func _process(_delta):
-	var velocity = Vector2.ZERO  # Default velocity
+	if is_dead:
+		return
+	var velocity = Vector2.ZERO
 	
 	# Handle movement input
 	if Input.is_action_pressed("ui_left"):
@@ -25,10 +27,20 @@ func _process(_delta):
 		velocity.y = 1
 		animated_sprite.play("walk")
 	else:
-		animated_sprite.play("idle")  # Stop animation if no input
+		animated_sprite.play("idle")  
 	
-	# Normalize velocity to prevent faster diagonal movement and apply speed
+	
 	velocity = velocity.normalized() * speed
 	
-	# Move the character
 	move_and_slide(velocity)
+	
+func die():
+	is_dead = true
+	animated_sprite.play("die")
+	
+	yield(get_tree().create_timer(1.5), "timeout")
+
+	call_deferred("reload_scene")
+
+func reload_scene():
+	get_tree().reload_current_scene()
