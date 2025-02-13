@@ -43,4 +43,6 @@ func die(delay_time = 0.0):
 	
 	yield(get_tree().create_timer(1.5), "timeout")
 	
+	Inventory.trigger_game_over()
+	
 	get_tree().change_scene("res://Gameover.tscn")
