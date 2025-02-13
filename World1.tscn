@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://city1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://city2.tscn" type="PackedScene" id=2]
@@ -166,6 +166,28 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="SegmentShape2D" id=54]
+b = Vector2( 0, 160 )
+
+[sub_resource type="SegmentShape2D" id=55]
+b = Vector2( 672, 0 )
+
+[sub_resource type="SegmentShape2D" id=56]
+a = Vector2( 1024, 0 )
+b = Vector2( 736, 0 )
+
+[sub_resource type="SegmentShape2D" id=57]
+a = Vector2( 1024, 608 )
+b = Vector2( 1024, 0 )
+
+[sub_resource type="SegmentShape2D" id=58]
+a = Vector2( 0, 608 )
+b = Vector2( 1024, 608 )
+
+[sub_resource type="SegmentShape2D" id=59]
+a = Vector2( 0, 224 )
+b = Vector2( 0, 608 )
 
 [node name="World1" type="Node2D"]
 script = ExtResource( 6 )
@@ -546,6 +568,26 @@ playing = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D2"]
 stream = ExtResource( 24 )
+
+[node name="reunat" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="reunat"]
+shape = SubResource( 54 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="reunat"]
+shape = SubResource( 55 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="reunat"]
+shape = SubResource( 56 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="reunat"]
+shape = SubResource( 57 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="reunat"]
+shape = SubResource( 58 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="reunat"]
+shape = SubResource( 59 )
 
 [connection signal="body_entered" from="TileMap/Area2D2" to="TileMap/Area2D2" method="_on_Area2D2_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]
