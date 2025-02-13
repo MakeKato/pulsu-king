@@ -51,11 +51,15 @@ func _ready():
 		print("Error: Bottle does not have 'collected' signal!")
 		
 func _on_Bottle_collected():
-	# Increment the bottle count and update the score label
-	Inventory.add_bottles(1)  # Ensure this updates the Inventory singleton
+	Inventory.add_bottles(1)
+	update_score()
+
+
+func _on_GameOver():
+	print("Game over event received!")
 	update_score()
 
 func update_score():
 	var total_bottles = Inventory.get_bottle_count()
-	print("Updating score. Total bottles: ", total_bottles)  # Debugging
+	print("Updating score label. Total bottles:", total_bottles)  
 	score_label.text = "Pulloja: %d" % total_bottles

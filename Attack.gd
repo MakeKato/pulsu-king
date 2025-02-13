@@ -16,7 +16,7 @@ func _ready():
 			player_detector.connect("body_exited", self, "_on_Area2D_body_exited")
 
 func _on_Area2D_body_entered(body):
-	if body.is_in_group("Player"):  
+	if body.is_in_group("Player"):
 		anim.play("attack")
 		
 		
