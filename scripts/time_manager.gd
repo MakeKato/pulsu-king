@@ -2,7 +2,7 @@ extends Node
 
 var hour = 8
 var minute = 0
-var time_speed = 0.8  # Adjust this for desired time progression speed (lower = faster)
+var time_speed = 0.6  # Time progression speed
 var elapsed_time = 0.0
 var game_over = false
 
@@ -22,7 +22,7 @@ func increment_time():
 	if minute >= 60:
 		minute = 0
 		hour += 1
-		if hour >= 21:  # Game ends at 9 PM
+		if hour >= 21:  # End game at 9 PM
 			hour = 21
 			minute = 0
 			game_over = true
@@ -31,3 +31,11 @@ func increment_time():
 			emit_signal("timer_updated", hour, minute)
 	else:
 		emit_signal("timer_updated", hour, minute)
+
+# New reset function
+func reset():
+	hour = 8
+	minute = 0
+	elapsed_time = 0.0
+	game_over = false
+	emit_signal("timer_updated", hour, minute)

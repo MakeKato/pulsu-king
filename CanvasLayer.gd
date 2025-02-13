@@ -29,7 +29,7 @@ func _on_game_ended():
 	handle_game_end()
 
 func handle_game_end():
-	var total_cash = Inventory.get_cash_amount()  # Ensure this function exists
+	var total_cash = Inventory.get_cash()  # Ensure this function exists
 
 	if total_cash < 20:
 		load_scene("res://scenes/loser.tscn")
@@ -48,7 +48,6 @@ func load_scene(scene_path):
 func _on_Bottle_collected():
 	Inventory.add_bottles(1)
 	update_score()
-
 
 func _on_GameOver():
 	print("Game over event received!")

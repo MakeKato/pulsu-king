@@ -3,7 +3,10 @@ extends Node
 var bottle_count = 0
 var cash = 0
 signal bottle_count_changed
-signal game_over  # Add this signal
+signal game_over
+
+# Load TimeManager
+onready var TimerManager = preload("res://Scripts/time_manager.gd").new()
 
 func add_bottles(amount):
 	bottle_count += amount
@@ -27,7 +30,8 @@ func reset():
 	bottle_count = 0
 	cash = 0
 	emit_signal("bottle_count_changed", bottle_count)
-	print("After reset - Bottles:", bottle_count, "Cash:", cash)  
+	TimeManager.reset()  # Call the reset method from TimerManager
+	print("After reset - Bottles:", bottle_count, "Cash:", cash)
 
 func trigger_game_over():
 	print("Game Over Triggered!")
