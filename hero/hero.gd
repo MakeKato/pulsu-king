@@ -11,7 +11,6 @@ func _process(_delta):
 		return
 	var velocity = Vector2.ZERO
 	
-	# Handle movement input
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= 1
 		animated_sprite.play("walk")
@@ -27,7 +26,7 @@ func _process(_delta):
 		velocity.y = 1
 		animated_sprite.play("walk")
 	else:
-		animated_sprite.play("idle")  
+		animated_sprite.play("idle")
 	
 	
 	velocity = velocity.normalized() * speed
@@ -37,7 +36,7 @@ func _process(_delta):
 func die(delay_time = 0.0):
 	is_dead = true
 
-	if delay_time > 0:  
+	if delay_time > 0:
 		yield(get_tree().create_timer(delay_time), "timeout")
 	
 	animated_sprite.play("die")

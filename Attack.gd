@@ -16,9 +16,7 @@ func _ready():
 			player_detector.connect("body_exited", self, "_on_Area2D_body_exited")
 
 func _on_Area2D_body_entered(body):
-	print("Pelaaja havaittu:", body.name)
 	if body.is_in_group("Player"):  
-		print("Animaation pitäisi vaihtua ATTACK")
 		anim.play("attack")
 		
 		

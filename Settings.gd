@@ -1,7 +1,7 @@
 extends Node
 
-const CONFIG_PATH = "user://settings.cfg"  # Tiedosto asetusten tallennukseen
-var volume = 1.0  # Oletusäänenvoimakkuus (1.0 = täysi, 0.0 = mykistetty)
+const CONFIG_PATH = "user://settings.cfg"
+var volume = 1.0
 
 func _ready():
 	load_settings()
@@ -14,12 +14,12 @@ func set_volume(value):
 	save_settings()
 
 func save_settings():
-	var config = ConfigFile.new()  # KÄYTÄ ConfigFile.new() !!!
+	var config = ConfigFile.new()
 	config.set_value("audio", "volume", volume)
 	config.save(CONFIG_PATH)
 
 func load_settings():
-	var config = ConfigFile.new()  # KÄYTÄ ConfigFile.new() !!!
+	var config = ConfigFile.new()
 	if config.load(CONFIG_PATH) == OK:
 		volume = config.get_value("audio", "volume", 1.0)
 		set_volume(volume)
