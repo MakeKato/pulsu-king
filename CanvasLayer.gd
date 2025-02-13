@@ -2,7 +2,7 @@ extends CanvasLayer
 
 onready var clock_label = $ClockLabel  
 onready var score_label = $ScoreLabel  
-onready var Inventory = preload("res://Scripts/inventory.gd").new()
+# onready var Inventory = preload("res://scripts/inventory.gd").new()
 
 func _ready():
 	# Connect to the TimeManager signals
@@ -30,6 +30,7 @@ func _on_game_ended():
 
 func handle_game_end():
 	var total_cash = Inventory.get_cash()  # Ensure this function exists
+	print("Total Cash: ", total_cash)  # Debugging output to verify the cash value
 
 	if total_cash < 20:
 		load_scene("res://scenes/loser.tscn")
@@ -37,6 +38,9 @@ func handle_game_end():
 		load_scene("res://scenes/mid.tscn")
 	else:
 		load_scene("res://scenes/big.tscn")
+	
+	Inventory.reset(false)  # Don't reset cash at game over
+
 
 func load_scene(scene_path):
 	var new_scene = load(scene_path)

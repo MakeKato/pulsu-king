@@ -2,7 +2,7 @@ extends Node
 
 var hour = 8
 var minute = 0
-var time_speed = 0.6  # Time progression speed
+var time_speed = 0.36  # Time progression speed
 var elapsed_time = 0.0
 var game_over = false
 

@@ -9,7 +9,8 @@ func _ready():
 	end_button.connect("pressed", self, "_on_end_button_pressed")
 	
 func _on_start_button_pressed():
-	
+	Inventory.reset()
+	TimeManager.reset()
 	get_tree().change_scene("res://World0.tscn")
 
 func _on_end_button_pressed():

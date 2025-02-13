@@ -13,9 +13,17 @@ func sell_bottles():
 	var bottle_count = Inventory.get_bottle_count()
 	var total_cash = bottle_count * bottle_price
 
+	# Debugging: Print the bottle count and total cash
+	print("Bottles to sell: ", bottle_count)
+	print("Total cash to add: $", total_cash)
+
 	# Update inventory and cash
 	Inventory.add_cash(total_cash)
 	Inventory.remove_bottles(bottle_count)
 
-	# Show confirmation message (optional)
+	# Show confirmation message
 	print("Sold " + str(bottle_count) + " bottles for $" + str(total_cash))
+
+	# Verify cash and bottle count after selling
+	print("Updated Cash: $", Inventory.get_cash())
+	print("Updated Bottle Count: ", Inventory.get_bottle_count())
