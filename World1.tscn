@@ -568,6 +568,7 @@ playing = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D2"]
 stream = ExtResource( 24 )
+volume_db = 24.0
 
 [node name="reunat" type="StaticBody2D" parent="."]
 

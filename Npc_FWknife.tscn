@@ -107,4 +107,5 @@ shape = SubResource( 15 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="KinematicBody2D"]
 stream = ExtResource( 3 )
+volume_db = 24.0
 pitch_scale = 0.84
