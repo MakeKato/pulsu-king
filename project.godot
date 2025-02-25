@@ -21,6 +21,7 @@ GameManager="*res://GameManager.gd"
 Inventory="*res://scripts/inventory.gd"
 Settings="*res://Settings.gd"
 TimeManager="*res://scripts/time_manager.gd"
+Audiomanager="*res://Audiomanager.tscn"
 
 [display]
 
