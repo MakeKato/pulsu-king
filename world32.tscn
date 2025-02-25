@@ -577,15 +577,15 @@ texture = ExtResource( 10 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/TileMap/TileMap/Pine-tree/StaticBody2D"]
 polygon = PoolVector2Array( -8.16327, 36.08, -5.10205, 29.52, -4.0816, 24.6, 4.08167, 25.42, 4.08167, 30.34, 8.16327, 35.26, 5.10205, 36.9, 2.04083, 37.72, -2.04083, 39.36 )
 
-[node name="Sprite" type="Sprite" parent="TileMap/TileMap/TileMap"]
+[node name="House" type="Sprite" parent="TileMap/TileMap/TileMap"]
 position = Vector2( 222, 199 )
 scale = Vector2( 2.575, 2.85417 )
 z_index = 10
 texture = ExtResource( 2 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="TileMap/TileMap/TileMap/Sprite"]
+[node name="StaticBody2D" type="StaticBody2D" parent="TileMap/TileMap/TileMap/House"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/TileMap/TileMap/Sprite/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/TileMap/TileMap/House/StaticBody2D"]
 position = Vector2( -0.388351, 11.2117 )
 scale = Vector2( 2.24272, 1.25226 )
 polygon = PoolVector2Array( -10.3896, -9.45985, -10.3896, 9.45985, 10.2164, 9.81022, 10.2164, -10.1606 )

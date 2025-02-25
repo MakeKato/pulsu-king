@@ -11,10 +11,9 @@
 script = ExtResource( 1 )
 
 [node name="ClockLabel" type="Label" parent="."]
-margin_left = 344.0
-margin_top = -144.0
-margin_right = 672.0
-margin_bottom = 168.0
+margin_left = 368.0
+margin_right = 504.0
+margin_bottom = 32.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "08:00"
 align = 1
