@@ -13,6 +13,7 @@
 [sub_resource type="CapsuleShape2D" id=2]
 
 [node name="World0" type="Node2D"]
+position = Vector2( -3, 0 )
 
 [node name="Ground" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -86,4 +87,5 @@ scale = Vector2( 13, 13 )
 mesh = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( -1, 0 )
 shape = SubResource( 2 )
