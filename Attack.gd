@@ -28,7 +28,6 @@ func _on_Area2D_body_entered(body):
 			
 
 func _on_Area2D_body_exited(body):
-	print("Pelaaja poistui alueelta:", body.name)
 	if body.is_in_group("Player"):  
 		print("Game over! You were stabbed!")
 		

@@ -7,16 +7,13 @@ func _ready():
 	speech_bubble.visible = false  # Hide the bubble initially
 
 func _on_Area2D2_body_entered(body):
-	print("Body entered:", body.name)
 	if body.is_in_group("Player"):
 		speech_bubble.visible = true  
 		speech_bubble.play("default") 
 		if not sound_player.playing: 
-			sound_player.play()  # Soitetaan ääni
+			sound_player.play()
 
 func _on_Area2D2_body_exited(body):
-	print("Body exited:", body.name)  # Debugging
-
 	if body.is_in_group("Player"):  # Tarkistetaan, että pelaaja poistuu alueelta
 		speech_bubble.stop()  # Pysäytetään animaatio
 		speech_bubble.visible = false  # Piilotetaan puhekupla
