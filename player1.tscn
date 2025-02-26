@@ -3,4 +3,5 @@
 [ext_resource path="res://Player1.gd" type="Script" id=1]
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
+z_index = 2
 script = ExtResource( 1 )
