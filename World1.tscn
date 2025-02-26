@@ -591,5 +591,4 @@ shape = SubResource( 58 )
 shape = SubResource( 59 )
 
 [connection signal="body_entered" from="TileMap/Area2D2" to="TileMap/Area2D2" method="_on_Area2D2_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_exited"]
