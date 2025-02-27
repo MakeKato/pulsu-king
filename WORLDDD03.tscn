@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://hero/hero.tscn" type="PackedScene" id=1]
 [ext_resource path="res://map.png" type="Texture" id=2]
 [ext_resource path="res://teeplayer.gd" type="Script" id=3]
+[ext_resource path="res://transfW03toW01.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 518.5, 122.5 )
@@ -915,6 +916,9 @@ outlines = [ PoolVector2Array( 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32 ) 
 64/shapes = [  ]
 64/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 8, 32 )
+
 [node name="WORLDDD03" type="Node2D"]
 script = ExtResource( 3 )
 player_scene = ExtResource( 1 )
@@ -964,3 +968,10 @@ position = Vector2( 167, 352 )
 
 [node name="BottleSpawn8" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
 position = Vector2( 336, 229 )
+
+[node name="ScW01Transition" type="Area2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScW01Transition"]
+position = Vector2( -8, 296 )
+shape = SubResource( 8 )
