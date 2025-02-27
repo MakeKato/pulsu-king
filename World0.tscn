@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://World.tres" type="TileSet" id=1]
 [ext_resource path="res://B03.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://scripts/bottlereturn.gd" type="Script" id=23]
 [ext_resource path="res://coin.wav" type="AudioStream" id=24]
 [ext_resource path="res://shopsound.gd" type="Script" id=25]
+[ext_resource path="res://transfW0toStadion.gd" type="Script" id=26]
 
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 94.7369, 82.6972 )
@@ -60,6 +61,9 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 17.5, 9.5 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 7, 16 )
@@ -314,6 +318,13 @@ position = Vector2( 915, 328 )
 
 [node name="BottleSpawn8" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
 position = Vector2( 334, 271 )
+
+[node name="ScWStadionTransition" type="Area2D" parent="."]
+script = ExtResource( 26 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScWStadionTransition"]
+position = Vector2( 560, -1 )
+shape = SubResource( 22 )
 
 [node name="ScW2Transition" type="Area2D" parent="."]
 position = Vector2( 1016, 347 )
