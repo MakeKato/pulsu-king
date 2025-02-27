@@ -1,8 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://hero/hero.tscn" type="PackedScene" id=1]
 [ext_resource path="res://map.png" type="Texture" id=2]
 [ext_resource path="res://teeplayer.gd" type="Script" id=3]
+[ext_resource path="res://scripts/SpawnManager.gd" type="Script" id=4]
+[ext_resource path="res://Bottle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Clock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://water.gd" type="Script" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 7.24329, 22.0121, 18.3351, 11.8848, 26.5334, 22.0121, 27.0157, 34.0684, 8.20782, 34.0684, 8.20782, 35.0329 )
@@ -912,6 +916,9 @@ outlines = [ PoolVector2Array( 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32 ) 
 64/shapes = [  ]
 64/z_index = 0
 
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 14.0
+
 [node name="WORLDDD03" type="Node2D"]
 script = ExtResource( 3 )
 player_scene = ExtResource( 1 )
@@ -921,10 +928,16 @@ tile_set = SubResource( 7 )
 format = 1
 tile_data = PoolIntArray( 786437, 1, 0 )
 
+[node name="CanvasLayer" parent="." instance=ExtResource( 6 )]
+
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 513, 303 )
+position = Vector2( 513, 302 )
 scale = Vector2( 0.65375, 0.638542 )
 texture = ExtResource( 2 )
+
+[node name="Bottles" type="Node2D" parent="."]
+script = ExtResource( 4 )
+bottle_scene = ExtResource( 5 )
 
 [node name="BottleSpawn1" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
 position = Vector2( 44, 154 )
@@ -949,3 +962,289 @@ position = Vector2( 167, 352 )
 
 [node name="BottleSpawn8" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
 position = Vector2( 336, 229 )
+
+[node name="Water" type="Area2D" parent="."]
+position = Vector2( -6, 466 )
+script = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Water" groups=["vesi"]]
+polygon = PoolVector2Array( 1, -2, 831, 1, 831, -468, 1041, -468, 1044, 139, -2, 141 )
+
+[node name="Tent" type="StaticBody2D" parent="."]
+position = Vector2( 23, 416 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tent"]
+polygon = PoolVector2Array( 0, 1, 22, 19, 62, 4, 51, -24, 29, -45, 8, -26 )
+
+[node name="Tent2" type="StaticBody2D" parent="."]
+position = Vector2( 23, 416 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tent2"]
+position = Vector2( 168, -205 )
+polygon = PoolVector2Array( 0, 1, 22, 19, 62, 4, 51, -24, 29, -45, 8, -26 )
+
+[node name="Tent3" type="StaticBody2D" parent="."]
+position = Vector2( 23, 416 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tent3"]
+position = Vector2( 607, -204 )
+polygon = PoolVector2Array( 0, 1, 22, 19, 62, 4, 51, -24, 29, -45, 8, -26 )
+
+[node name="Tent4" type="StaticBody2D" parent="."]
+position = Vector2( 23, 416 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tent4"]
+position = Vector2( 228, -348 )
+polygon = PoolVector2Array( 0, 1, 22, 19, 62, 4, 51, -24, 29, -45, 8, -26 )
+
+[node name="BigTree" type="StaticBody2D" parent="."]
+position = Vector2( 17, -2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BigTree"]
+polygon = PoolVector2Array( 1, 1, 27, 87, 9, 88, 16, 96, 9, 100, -9, 101, -15, 95, -10, 88, -25, 88 )
+
+[node name="BigTree2" type="StaticBody2D" parent="."]
+position = Vector2( 17, -2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BigTree2"]
+position = Vector2( 63, 39 )
+polygon = PoolVector2Array( 1, 1, 27, 87, 9, 88, 16, 96, 9, 100, -9, 101, -15, 95, -10, 88, -25, 88 )
+
+[node name="BigTree3" type="StaticBody2D" parent="."]
+position = Vector2( 17, -2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BigTree3"]
+position = Vector2( 147, -1 )
+polygon = PoolVector2Array( 1, 1, 27, 87, 9, 88, 16, 96, 9, 100, -9, 101, -15, 95, -10, 88, -25, 88 )
+
+[node name="BigTree4" type="StaticBody2D" parent="."]
+position = Vector2( 17, -2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BigTree4"]
+position = Vector2( 418, 18 )
+polygon = PoolVector2Array( 1, 1, 27, 87, 9, 88, 16, 96, 9, 100, -9, 101, -15, 95, -10, 88, -25, 88 )
+
+[node name="MidleSizedTree" type="StaticBody2D" parent="."]
+position = Vector2( 115, 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MidleSizedTree"]
+polygon = PoolVector2Array( 0, 0, 15, 39, 6, 39, 10, 48, -9, 48, -5, 40, -15, 38 )
+
+[node name="MidleSizedTree2" type="StaticBody2D" parent="."]
+position = Vector2( 115, 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MidleSizedTree2"]
+position = Vector2( -105, 102 )
+polygon = PoolVector2Array( 0, 0, 15, 39, 6, 39, 10, 48, -9, 48, -5, 40, -15, 38 )
+
+[node name="MidleSizedTree3" type="StaticBody2D" parent="."]
+position = Vector2( 115, 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MidleSizedTree3"]
+position = Vector2( 398, 62 )
+polygon = PoolVector2Array( 0, 0, 15, 39, 6, 39, 10, 48, -9, 48, -5, 40, -15, 38 )
+
+[node name="MidleSizedTree4" type="StaticBody2D" parent="."]
+position = Vector2( 115, 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MidleSizedTree4"]
+position = Vector2( 378, -1 )
+polygon = PoolVector2Array( 0, 0, 15, 39, 6, 39, 10, 48, -9, 48, -5, 40, -15, 38 )
+
+[node name="MidleSizedTree5" type="StaticBody2D" parent="."]
+position = Vector2( 115, 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MidleSizedTree5"]
+position = Vector2( 273, 1 )
+polygon = PoolVector2Array( 0, 0, 15, 39, 6, 39, 10, 48, -9, 48, -5, 40, -15, 38 )
+
+[node name="MidleSizedTree6" type="StaticBody2D" parent="."]
+position = Vector2( 115, 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MidleSizedTree6"]
+position = Vector2( 20, 103 )
+polygon = PoolVector2Array( 0, 0, 15, 39, 6, 39, 10, 48, -9, 48, -5, 40, -15, 38 )
+
+[node name="MidleSizedTree7" type="StaticBody2D" parent="."]
+position = Vector2( 115, 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MidleSizedTree7"]
+position = Vector2( -62, 22 )
+polygon = PoolVector2Array( 0, 0, 15, 39, 6, 39, 10, 48, -9, 48, -5, 40, -15, 38 )
+
+[node name="SmallTree" type="StaticBody2D" parent="."]
+position = Vector2( 125, 76 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallTree"]
+polygon = PoolVector2Array( 0, 0, 8, 19, 3, 20, 3, 23, -1, 23, -1, 20, -9, 20 )
+
+[node name="SmallTree2" type="StaticBody2D" parent="."]
+position = Vector2( 125, 76 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallTree2"]
+position = Vector2( 565, -21 )
+polygon = PoolVector2Array( 0, 0, 8, 19, 3, 20, 3, 23, -1, 23, -1, 20, -9, 20 )
+
+[node name="SmallTree3" type="StaticBody2D" parent="."]
+position = Vector2( 125, 76 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallTree3"]
+position = Vector2( 355, 0 )
+polygon = PoolVector2Array( 0, 0, 8, 19, 3, 20, 3, 23, -1, 23, -1, 20, -9, 20, -5, 9 )
+
+[node name="SmallTree4" type="StaticBody2D" parent="."]
+position = Vector2( 125, 76 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallTree4"]
+position = Vector2( 524, -82 )
+polygon = PoolVector2Array( 0, 0, 8, 19, 3, 20, 3, 23, -1, 23, -1, 20, -9, 20 )
+
+[node name="SmallTree5" type="StaticBody2D" parent="."]
+position = Vector2( 125, 76 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallTree5"]
+position = Vector2( 544, -61 )
+polygon = PoolVector2Array( 0, 0, 8, 19, 3, 20, 3, 23, -1, 23, -1, 20, -9, 20 )
+
+[node name="SmallTree6" type="StaticBody2D" parent="."]
+position = Vector2( 125, 76 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallTree6"]
+position = Vector2( 398, -82 )
+polygon = PoolVector2Array( 0, 0, 8, 19, 3, 20, 3, 23, -1, 23, -1, 20, -9, 20 )
+
+[node name="SmallTree7" type="StaticBody2D" parent="."]
+position = Vector2( 125, 76 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallTree7"]
+position = Vector2( 335, -62 )
+polygon = PoolVector2Array( 0, 0, 8, 19, 3, 20, 3, 23, -1, 23, -1, 20, -9, 20 )
+
+[node name="SmallTree8" type="StaticBody2D" parent="."]
+position = Vector2( 125, 76 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallTree8"]
+position = Vector2( 481, -18 )
+polygon = PoolVector2Array( 0, 0, 8, 19, 3, 20, 3, 23, -1, 23, -1, 20, -9, 20 )
+
+[node name="WideTree" type="StaticBody2D" parent="."]
+position = Vector2( 659, 47 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WideTree"]
+polygon = PoolVector2Array( 1, -1, 19, 36, 19, 36, 11, 43, 15, 47, 9, 51, -5, 51, -12, 46, -9, 42, -22, 32 )
+
+[node name="WideTree2" type="StaticBody2D" parent="."]
+position = Vector2( 659, 47 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WideTree2"]
+position = Vector2( 42, -41 )
+polygon = PoolVector2Array( 1, -1, 19, 36, 19, 36, 11, 43, 15, 47, 9, 51, -5, 51, -12, 46, -9, 42, -22, 32 )
+
+[node name="WideTree3" type="StaticBody2D" parent="."]
+position = Vector2( 659, 47 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WideTree3"]
+position = Vector2( -41, -41 )
+polygon = PoolVector2Array( 1, -1, 19, 36, 19, 36, 11, 43, 15, 47, 9, 51, -5, 51, -12, 46, -9, 42, -22, 32 )
+
+[node name="Fire" type="StaticBody2D" parent="."]
+position = Vector2( 284, 226 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fire"]
+polygon = PoolVector2Array( 0, 0, 16, 0, 17, 13, 0, 13 )
+
+[node name="Fire2" type="StaticBody2D" parent="."]
+position = Vector2( 284, 226 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fire2"]
+position = Vector2( 418, -1 )
+polygon = PoolVector2Array( 0, 0, 16, 0, 17, 13, 0, 13 )
+
+[node name="Fire3" type="StaticBody2D" parent="."]
+position = Vector2( 284, 226 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fire3"]
+position = Vector2( -168, 204 )
+polygon = PoolVector2Array( 0, 0, 16, 0, 17, 13, 0, 13 )
+
+[node name="Fire4" type="StaticBody2D" parent="."]
+position = Vector2( 284, 226 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fire4"]
+position = Vector2( 42, -82 )
+polygon = PoolVector2Array( 0, 0, 16, 0, 17, 13, 0, 13 )
+
+[node name="ManRight2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ManRight2"]
+position = Vector2( 717, 201 )
+shape = SubResource( 8 )
+
+[node name="ManRight" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ManRight"]
+position = Vector2( 770, 159 )
+shape = SubResource( 8 )
+
+[node name="WomenRight" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WomenRight"]
+position = Vector2( 781, 201 )
+shape = SubResource( 8 )
+
+[node name="ManLeft" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ManLeft"]
+position = Vector2( 110, 403 )
+shape = SubResource( 8 )
+
+[node name="WomenLeft" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WomenLeft"]
+position = Vector2( 134, 364 )
+shape = SubResource( 8 )
+
+[node name="ManLeft2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ManLeft2"]
+position = Vector2( 163, 403 )
+shape = SubResource( 8 )
+
+[node name="ManMiddle" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ManMiddle"]
+position = Vector2( 301, 118 )
+shape = SubResource( 8 )
+
+[node name="ManMiddle2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ManMiddle2"]
+position = Vector2( 392, 118 )
+shape = SubResource( 8 )
+
+[node name="WomenMiddle" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WomenMiddle"]
+position = Vector2( 343, 99 )
+shape = SubResource( 8 )
+
+[node name="WomenMiddle2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WomenMiddle2"]
+position = Vector2( 364, 79 )
+shape = SubResource( 8 )
+
+[node name="ManMiddle3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ManMiddle3"]
+position = Vector2( 276, 200 )
+shape = SubResource( 8 )
+
+[node name="WomenMiddle3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WomenMiddle3"]
+position = Vector2( 321, 201 )
+shape = SubResource( 8 )
+
+[connection signal="body_entered" from="Water" to="Water" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Water" to="Water" method="_on_Area2D_body_exited"]

@@ -11,3 +11,7 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D2_body_entered(body):
 	_on_Area2D_body_entered(body)
+
+
+func _on_Area2D_body_exited(body):
+	pass # Replace with function body.
