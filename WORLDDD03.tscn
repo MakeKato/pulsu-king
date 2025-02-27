@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://hero/hero.tscn" type="PackedScene" id=1]
 [ext_resource path="res://map.png" type="Texture" id=2]
+[ext_resource path="res://teeplayer.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 518.5, 122.5 )
@@ -915,6 +916,8 @@ outlines = [ PoolVector2Array( 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32 ) 
 64/z_index = 0
 
 [node name="WORLDDD03" type="Node2D"]
+script = ExtResource( 3 )
+player_scene = ExtResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -928,16 +931,36 @@ margin_top = 283.0
 margin_right = 1008.0
 margin_bottom = 381.0
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 482, 88 )
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 7 )
 format = 1
+tile_data = PoolIntArray( 786437, 1, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 779, 482 )
+position = Vector2( 513, 303 )
+scale = Vector2( 0.65375, 0.638542 )
 texture = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
+
+[node name="BottleSpawn1" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 44, 154 )
+
+[node name="BottleSpawn2" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 238, 28 )
+
+[node name="BottleSpawn3" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 616, 342 )
+
+[node name="BottleSpawn4" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 682, 177 )
+
+[node name="BottleSpawn5" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 618, 73 )
+
+[node name="BottleSpawn6" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 463, 106 )
+
+[node name="BottleSpawn7" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 167, 352 )
+
+[node name="BottleSpawn8" type="Position2D" parent="." groups=["BottleSpawnPoints"]]
+position = Vector2( 336, 229 )
