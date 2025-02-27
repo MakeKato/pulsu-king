@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://World.tres" type="TileSet" id=1]
 [ext_resource path="res://B03.png" type="Texture" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://coin.wav" type="AudioStream" id=24]
 [ext_resource path="res://shopsound.gd" type="Script" id=25]
 [ext_resource path="res://transfW0toStadion.gd" type="Script" id=26]
+[ext_resource path="res://shop.png" type="Texture" id=27]
 
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 94.7369, 82.6972 )
@@ -131,6 +132,7 @@ texture = ExtResource( 2 )
 [node name="StaticBody2D" type="StaticBody2D" parent="Shop"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shop/StaticBody2D"]
+position = Vector2( 0.973633, 5.76843 )
 polygon = PoolVector2Array( -91.1316, -126.547, 93.0789, -126.547, 93.0789, -34.944, 116.763, -42.5776, 116.763, 84.6488, -106.921, 79.5598, -109.553, -37.4886, -93.7632, -37.4886 )
 
 [node name="Area2D" type="Area2D" parent="Shop"]
@@ -325,6 +327,11 @@ script = ExtResource( 26 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScWStadionTransition"]
 position = Vector2( 560, -1 )
 shape = SubResource( 22 )
+
+[node name="Shop" type="Sprite" parent="ScWStadionTransition/CollisionShape2D"]
+position = Vector2( -326.5, 92 )
+scale = Vector2( 0.655555, 0.7 )
+texture = ExtResource( 27 )
 
 [node name="ScW2Transition" type="Area2D" parent="."]
 position = Vector2( 1016, 347 )
