@@ -391,7 +391,7 @@ position = Vector2( 0, 15.7142 )
 shape = SubResource( 41 )
 
 [node name="Drunk2" parent="." instance=ExtResource( 21 )]
-position = Vector2( 75, 536 )
+position = Vector2( 64, 555 )
 scale = Vector2( 0.7, 0.7 )
 z_index = 1
 
@@ -403,7 +403,7 @@ position = Vector2( -41.4286, 22.857 )
 shape = SubResource( 42 )
 
 [node name="Drunk3" parent="." instance=ExtResource( 20 )]
-position = Vector2( 104, 568 )
+position = Vector2( 104, 563 )
 scale = Vector2( 0.9, 0.7 )
 z_index = 1
 
@@ -572,7 +572,7 @@ z_index = 1
 script = ExtResource( 23 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2( 73, 479 )
+position = Vector2( 72, 494 )
 shape = SubResource( 45 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D2"]

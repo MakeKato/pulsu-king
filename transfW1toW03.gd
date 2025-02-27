@@ -1,7 +1,7 @@
 extends Area2D
 
 export(String, FILE, "*.tscn") var next_scene_path = "res://WORLDDD03.tscn"
-export(Vector2) var player_spawn_position = Vector2(8, 238)
+export(Vector2) var player_spawn_position = Vector2(26, 238)
 
 func _ready():
 	connect("body_entered", self, "_on_body_entered")  # Ensures signal is connected
