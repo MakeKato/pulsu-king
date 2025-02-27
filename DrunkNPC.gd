@@ -1,8 +1,8 @@
 extends Node2D
 
 onready var area2d = $Area2D
-onready var npc_women2 = $Area2D/NPCwomen2
-onready var animated_sprite = $Area2D/NPCwomen2/AnimatedSprite
+onready var drunknpc = $Area2D/DrunkNPC
+onready var animated_sprite = $Area2D/DrunkNPC/AnimatedSprite
 
 func _ready():
 	if area2d == null:
@@ -10,10 +10,10 @@ func _ready():
 	else:
 		print("Area2D löytyi.")
 	
-	if npc_women2 == null:
-		print("NPCwomen2 ei löytynyt!")
+	if drunknpc == null:
+		print("DrunkNPC ei löytynyt!")
 	else:
-		print("NPCwomen2 löytyi.")
+		print("DrunkNPC löytyi.")
 	
 	if animated_sprite == null:
 		print("AnimatedSprite ei löytynyt!")
