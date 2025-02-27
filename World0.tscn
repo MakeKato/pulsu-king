@@ -329,8 +329,8 @@ position = Vector2( 560, -1 )
 shape = SubResource( 22 )
 
 [node name="Shop" type="Sprite" parent="ScWStadionTransition/CollisionShape2D"]
-position = Vector2( -326.5, 92 )
-scale = Vector2( 0.655555, 0.7 )
+position = Vector2( -325.5, 91.5 )
+scale = Vector2( 0.877778, 0.783333 )
 texture = ExtResource( 27 )
 
 [node name="ScW2Transition" type="Area2D" parent="."]
