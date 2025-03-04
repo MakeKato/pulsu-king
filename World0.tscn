@@ -27,7 +27,7 @@
 [ext_resource path="res://shopsound.gd" type="Script" id=25]
 [ext_resource path="res://transfW0toStadion.gd" type="Script" id=26]
 [ext_resource path="res://shop.png" type="Texture" id=27]
-[ext_resource path="res://art/under-construction.png" type="Texture" id=28]
+[ext_resource path="res://art/traffic-barrier.png" type="Texture" id=28]
 
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 94.7369, 82.6972 )
@@ -390,15 +390,15 @@ shape = SubResource( 19 )
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="reunat"]
 shape = SubResource( 20 )
 
-[node name="Under-construction" type="Sprite" parent="."]
-position = Vector2( 560, 17 )
-scale = Vector2( 0.0917969, 0.078125 )
+[node name="Traffic-barrier" type="Sprite" parent="."]
+position = Vector2( 29, 367 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 28 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Under-construction"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Traffic-barrier"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Under-construction/StaticBody2D"]
-polygon = PoolVector2Array( -272.341, -204.8, -272.341, 0, -239.66, 25.6, -239.66, 204.8, -185.192, 204.8, -185.192, 12.8, 163.404, 12.8, 163.404, 204.8, 239.659, 204.8, 239.659, 25.6, 272.34, 0, 261.446, -192 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Traffic-barrier/StaticBody2D"]
+polygon = PoolVector2Array( -240, -250, -240, 160, 9.99991, 160, -40.0001, 230, 190, 230, 150, 160, 260, 160, 260, -260 )
 
 [connection signal="body_entered" from="Shop/Area2D" to="Shop/Area2D" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Shop/Area2D" to="Shop/Area2D" method="_on_Area2D_body_exited"]
