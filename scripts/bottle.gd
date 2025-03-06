@@ -19,3 +19,4 @@ func collect():
 	print("Bottle collected!")  # Debug message
 	Inventory.add_bottles(1)
 	queue_free()  # Removes the bottle from the scene
+
