@@ -939,6 +939,7 @@ position = Vector2( 77, 337 )
 collision_layer = 2
 
 [node name="NavigationAgent" type="NavigationAgent2D" parent="koira"]
+path_desired_distance = 0.11
 target_desired_distance = 10.0
 path_max_distance = 100.0
 avoidance_enabled = true
